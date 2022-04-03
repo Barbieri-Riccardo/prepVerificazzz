@@ -9,8 +9,13 @@ import { Email } from 'src/email/mail';
 })
 export class AppComponent {
   title = 'email-barbieri';
-  invia(){
-  
+  vettMail : Email[]=[];
+  invia(destinatario:HTMLInputElement,oggetto:HTMLInputElement,messaggio:HTMLInputElement):boolean{
+    console.log(destinatario.value + " " + oggetto.value + " " + messaggio.value);
+    let e = new Email(destinatario.value, oggetto.value, messaggio.value);
+    this.vettMail.push(e);
+    console.log(this.vettMail)
+    return false;
   }
 }
 
