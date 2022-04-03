@@ -1,9 +1,16 @@
-<input type="text" #destinatario><label>DESTINATARIO</label>
+<input type="text" #destinatario><label>DESTINATARIO</label>>
 <br>
 <br>
-<input type="text" #oggetto><label>OGGETTO</label>
+<input type="text" #oggetto><label>OGGETTO</label>>
 <br>
 <br>
-<input type="text" #messaggio><label>MESSAGGIO</label>
+<input type="text" #messaggio><label>MESSAGGIO</label>>
 <br>
-<button (click)="invia()">INVIA</button>
+<button (click)="invia(destinatario, oggetto, messaggio)">INVIA</button>
+
+<ul>
+  <li *ngFor = "let e of vettMail">
+    {{e | json}}
+    <app-sent-mail [email] = "e" ></app-sent-mail>
+  </li>
+</ul>
